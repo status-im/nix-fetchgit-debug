@@ -1,0 +1,3 @@
+[submodule "nim-faststreams"]
+	path = nim-faststreams
+	url = https://github.com/status-im/nim-faststreams
