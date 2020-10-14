@@ -2,6 +2,8 @@
 
 This repo exists to reproduce an issue with fetching some git submodules which breaks determinism of `pkgs.fetchgit`.
 
+The issue appears only when using both `fetchSubmodules = true` and `deepClone = true`.
+
 # Reproduction
 
 When I build the `default.nix` derivation which fetches the source for this repo using `pkgs.fetchgit` I get different resulting `sha256` at differnt times:
@@ -37,3 +39,7 @@ Only in /nix/store/9vylzwxxi52bvyr8dcrsaaxj5ppwrid2-nix-fetchgit-debug-f0e389d/n
 Only in /nix/store/9vylzwxxi52bvyr8dcrsaaxj5ppwrid2-nix-fetchgit-debug-f0e389d/nim-waku/vendor/nim-faststreams/.git/objects/pack: pack-b56d89b8eafd21f484dc6af50a7771bbf28ed92c.pack
 ```
 The cause of this seems to be the fact that both the root repo and the `nim-waku` submodule reference the same `nim-faststreams` repo. Also both this repo and `nim-waku` use the same `nim-faststreams` commit: [`5df69fc6`](https://github.com/status-im/nim-faststreams/commit/5df69fc6961e58205189cd92ae2477769fa8c4c0).
+
+# Issue
+
+Opened an issue for this: https://github.com/NixOS/nixpkgs/issues/100498
