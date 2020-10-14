@@ -2,8 +2,8 @@
 
 pkgs.fetchgit {
   url = "https://github.com/status-im/nix-fetchgit-debug.git";
-  rev = "162d1f6225257db5085d8abd57a6b5e14ae3aa59";
-  sha256 = "03savn410wxmi3cw5977ssl3hnpdpgqpc3jn69jcd82m3ks01xbm";
+  rev = "f0e389dab851fae1468715cf929288f736060529";
+  sha256 = "0qmrg2a79ynjdwcw8jgkd0qdy880rwn366p78qr9yj7hrnznpzci";
   leaveDotGit = true;
   deepClone = true;
   fetchSubmodules = true;
